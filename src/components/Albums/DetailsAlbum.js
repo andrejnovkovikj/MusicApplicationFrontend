@@ -114,8 +114,6 @@ const DetailsAlbum = ({ user }) => {
         }
     }, [album, songs, isAdmin]);
     if (loading) return <div><h1>Loading...</h1></div>;
-
-    if(loading) return <div><h1>Loading</h1></div>
     if (!album) return <div className="text-center text-danger">Error: Album not found</div>;
 
     return (

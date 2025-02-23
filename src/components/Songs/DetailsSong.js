@@ -8,6 +8,7 @@ const DetailsSong = ({ user }) => {
     const [song, setSong] = useState(null);
     const [liked, setLiked] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
+    const [loading,setLoading] = useState(true);
 
     useEffect(() => {
         const fetchSongData = async () => {
@@ -77,6 +78,12 @@ const DetailsSong = ({ user }) => {
             }
         }
     };
+    useEffect(() => {
+        if (song && isAdmin !== undefined) {
+            setLoading(false);
+        }
+    }, [song, isAdmin]);
+    if (loading) return <div><h1>Loading...</h1></div>;
 
     if (!song) return <div>Error: Song not found</div>;
 

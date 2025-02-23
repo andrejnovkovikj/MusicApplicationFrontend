@@ -8,6 +8,7 @@ const DetailsArtist = ({ user }) => {
     const [artist, setArtist] = useState(null);
     const [albums, setAlbums] = useState([]);
     const [isAdmin, setIsAdmin] = useState(false);
+    const [loading,setLoading] = useState(true);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -63,6 +64,12 @@ const DetailsArtist = ({ user }) => {
             }
         }
     };
+    useEffect(() => {
+        if (artist && isAdmin !== undefined) {
+            setLoading(false);
+        }
+    }, [artist, isAdmin]);
+    if (loading) return <div><h1>Loading...</h1></div>;
 
     if (!artist) return <div className="text-center text-danger">Error: Artist not found</div>;
 

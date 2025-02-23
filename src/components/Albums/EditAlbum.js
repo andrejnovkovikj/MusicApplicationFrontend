@@ -53,7 +53,6 @@ const EditAlbum = ({ user }) => {
               }
           }
         };
-        setLoading(false);
         fetchIsAdmin();
 
     }, [id,user]);
@@ -83,7 +82,12 @@ const EditAlbum = ({ user }) => {
                 alert("Failed to update album");
             });
     };
-    if(loading) return <div><h1>Loading</h1></div>
+    useEffect(() => {
+        if (album && isAdmin !== undefined) {
+            setLoading(false);
+        }
+    }, [album, isAdmin]);
+    if (loading) return <div><h1>Loading...</h1></div>;
     if(!isAdmin) return <div className="d-flex justify-content-center"><h4> You dont have an access for this page!</h4> </div>
 
 

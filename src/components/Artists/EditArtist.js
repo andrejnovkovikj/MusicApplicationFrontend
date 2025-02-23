@@ -6,6 +6,7 @@ const EditArtist = ({ user }) => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [isAdmin,setIsAdmin] = useState(false);
+    const [loading,setLoading] = useState(true);
     const [artist, setArtist] = useState({
         name: "",
         bio: "",
@@ -60,6 +61,14 @@ const EditArtist = ({ user }) => {
             alert("Failed to update artist");
         }
     };
+
+    useEffect(() => {
+        if (artist && isAdmin !== undefined) {
+            setLoading(false);
+        }
+    }, [artist, isAdmin]);
+    if (loading) return <div><h1>Loading...</h1></div>;
+
     if(!isAdmin) return <div className="d-flex justify-content-center"><h4> You dont have an access for this page!</h4> </div>
 
     return (
