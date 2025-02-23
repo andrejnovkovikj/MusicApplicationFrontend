@@ -1,0 +1,26 @@
+.sidebar {
+    width: 220px; /* Compact width */
+    height: 100vh; /* Full viewport height */
+    position: fixed; /* Keeps it fixed on the left */
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #212529; /* Dark theme */
+    padding: 15px;
+}
+
+.sidebar .nav-link {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #343a40;
+    border-radius: 5px;
+}
+
+.content {
+    margin-left: 220px; /* Push content so it doesn’t overlap with sidebar */
+    padding: 20px;
+}
