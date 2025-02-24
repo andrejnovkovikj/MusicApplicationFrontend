@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Logout from "../Authorization/Logout";
+import React from "react";
 
 const Sidebar = ({ user }) => {
     return (
@@ -74,7 +75,9 @@ const Sidebar = ({ user }) => {
                 </div>
                 {user ? (
                     <>
-                        <p className="text-white">Welcome, <strong>{user.email}</strong></p>
+                        <p className="text-white">Welcome, <Link to={`/users/${user.uid}`} className="text-white text-decoration-underline">
+                            <h6 className="mb-0">{user.email}</h6>
+                        </Link></p>
                         <Logout/>
                     </>
                 ) : (

@@ -107,7 +107,7 @@ const DetailsUser = () => {
                     {likedAlbums.length > 0 ? (
                         <div className="row">
                             {likedAlbums.map((album) => (
-                                <div key={album.id} className="col-md-6 mb-3">
+                                <div key={album.id} className="col-12 mb-3">
                                     <Link to={`/albums/${album.id}`} className="list-group-item text-decoration-none">
                                         <div className="d-flex align-items-center">
                                             <img
