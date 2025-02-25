@@ -3,7 +3,7 @@ import axios from "axios";
 const artistService = {
     getAllArtists: async () => {
         try {
-            const response = await axios.get('https://musicapplicationbackend.onrender.com/api/artists');
+            const response = await axios.get('https://musicapplicationbackend-production.up.railway.app/api/artists');
             return response.data;
         } catch (error) {
             console.error('Error fetching artists', error);
@@ -13,7 +13,7 @@ const artistService = {
 
     getArtistById: async (id) => {
         try {
-            const response = await axios.get(`https://musicapplicationbackend.onrender.com/api/artists/${id}`);
+            const response = await axios.get(`https://musicapplicationbackend-production.up.railway.app/api/artists/${id}`);
             return response.data;
         } catch (error) {
             console.error(`Error fetching artist with id ${id}`, error);
@@ -23,7 +23,7 @@ const artistService = {
 
     createArtist: async (artist) => {
         try {
-            const response = await axios.post('https://musicapplicationbackend.onrender.com/api/artists', artist);
+            const response = await axios.post('https://musicapplicationbackend-production.up.railway.app/api/artists', artist);
             return response.data;
         } catch (error) {
             console.error('Error creating artist', error);
@@ -33,7 +33,7 @@ const artistService = {
 
     updateArtist: async (id, artist) => {
         try {
-            await axios.put(`https://musicapplicationbackend.onrender.com/api/artists/update/${id}`, artist);
+            await axios.put(`https://musicapplicationbackend-production.up.railway.app/api/artists/update/${id}`, artist);
         } catch (error) {
             console.error(`Error updating artist ${id}`, error);
             throw error;
@@ -41,7 +41,7 @@ const artistService = {
     },
     deleteArtist: async (id) => {
         try {
-            await axios.delete(`https://musicapplicationbackend.onrender.com/api/artists/delete/${id}`);
+            await axios.delete(`https://musicapplicationbackend-production.up.railway.app/api/artists/delete/${id}`);
         }catch (error){
             console.error(`Error deleting artist ${id}`,error);
             throw error;

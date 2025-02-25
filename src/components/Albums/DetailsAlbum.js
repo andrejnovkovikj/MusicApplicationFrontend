@@ -25,7 +25,7 @@ const DetailsAlbum = ({ user }) => {
             if (!user) return;
 
             try {
-                const response = await fetch(`https://musicapplicationbackend.onrender.com/api/albums/${user.email}/liked-albums`);
+                const response = await fetch(`https://musicapplicationbackend-production.up.railway.app/api/albums/${user.email}/liked-albums`);
                 if (!response.ok) throw new Error("Failed to fetch liked albums");
 
                 const likedAlbums = await response.json();
@@ -50,7 +50,7 @@ const DetailsAlbum = ({ user }) => {
         const fetchSongsData = async () => {
             if (!album) return;
             try {
-                const response = await fetch(`https://musicapplicationbackend.onrender.com/api/albums/${album.id}/songs`);
+                const response = await fetch(`https://musicapplicationbackend-production.up.railway.app/api/albums/${album.id}/songs`);
                 const songsData = await response.json();
                 setSongs(songsData);
             } catch (error) {
@@ -64,7 +64,7 @@ const DetailsAlbum = ({ user }) => {
         const fetchIsAdmin = async () => {
             if(user){
                 try {
-                    const response = await fetch(`https://musicapplicationbackend.onrender.com/api/users/${user.uid}/role`);
+                    const response = await fetch(`https://musicapplicationbackend-production.up.railway.app/api/users/${user.uid}/role`);
                     const isAdminResponse = await response.json();
                     setIsAdmin(isAdminResponse === 'ADMIN');
 
@@ -113,7 +113,7 @@ const DetailsAlbum = ({ user }) => {
             setLoading(false);
         }
     }, [album, songs, isAdmin]);
-    if (loading) return <div><h1>Loading...</h1></div>;
+    if (loading) return <div className="d-flex justify-content-center"><h1>Loading...</h1></div>;
     if (!album) return <div className="text-center text-danger">Error: Album not found</div>;
 
     return (

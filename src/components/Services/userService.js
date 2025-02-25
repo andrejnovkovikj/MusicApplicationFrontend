@@ -3,7 +3,7 @@ import axios from 'axios';
 const userService = {
     getAllUsers: async () => {
         try {
-            const response = await axios.get('https://musicapplicationbackend.onrender.com/api/users');
+            const response = await axios.get('https://musicapplicationbackend-production.up.railway.app/api/users');
             return response.data;
         } catch (error) {
             console.error('Error fetching users', error);
@@ -13,7 +13,7 @@ const userService = {
 
     getUserById: async (id) => {
         try {
-            const response = await axios.get(`https://musicapplicationbackend.onrender.com/api/users/${id}`);
+            const response = await axios.get(`https://musicapplicationbackend-production.up.railway.app/api/users/${id}`);
             return response.data;
         } catch (error) {
             console.error(`Error fetching user with id ${id}`, error);
@@ -22,7 +22,7 @@ const userService = {
     },
     getCurrentUser: async () => {
         try {
-            const response = await axios.get('https://musicapplicationbackend.onrender.com/api/users/current-user')
+            const response = await axios.get('https://musicapplicationbackend-production.up.railway.app/api/users/current-user')
             return response.data;
         }catch (error){
             console.error('Error fetching current user');
@@ -32,7 +32,7 @@ const userService = {
 
     createUser: async (user) => {
         try {
-            const response = await axios.post('https://musicapplicationbackend.onrender.com/api/users/register', user);
+            const response = await axios.post('https://musicapplicationbackend-production.up.railway.app/api/users/register', user);
             return response.data;
         } catch (error) {
             console.error("Error creating user:", error);
@@ -42,7 +42,7 @@ const userService = {
 
     updateUser: async (id, user) => {
         try {
-            const response = await axios.put(`https://musicapplicationbackend.onrender.com/api/users/${id}`, user);
+            const response = await axios.put(`https://musicapplicationbackend-production.up.railway.app/api/users/${id}`, user);
             return response.data;
         } catch (error) {
             console.error(`Error updating user with id ${id}`, error);
@@ -52,7 +52,7 @@ const userService = {
 
     deleteUser: async (id) => {
         try {
-            await axios.delete(`https://musicapplicationbackend.onrender.com/api/users/${id}`);
+            await axios.delete(`https://musicapplicationbackend-production.up.railway.app/api/users/${id}`);
         } catch (error) {
             console.error(`Error deleting user with id ${id}`, error);
             throw error;

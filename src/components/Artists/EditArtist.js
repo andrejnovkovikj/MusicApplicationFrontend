@@ -25,7 +25,7 @@ const EditArtist = ({ user }) => {
         const fetchIsAdmin = async () => {
             if(user){
                 try {
-                    const response = await fetch(`https://musicapplicationbackend.onrender.com/api/users/${user.uid}/role`);
+                    const response = await fetch(`https://musicapplicationbackend-production.up.railway.app/api/users/${user.uid}/role`);
                     const isAdminStatus = await response.json();
 
                     if( isAdminStatus === "ADMIN"){

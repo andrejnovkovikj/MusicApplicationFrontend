@@ -24,7 +24,7 @@ const DetailsArtist = ({ user }) => {
         const fetchIsAdmin = async () => {
             if (user) {
                 try {
-                    const response = await fetch(`https://musicapplicationbackend.onrender.com/api/users/${user.uid}/role`);
+                    const response = await fetch(`https://musicapplicationbackend-production.up.railway.app/api/users/${user.uid}/role`);
                     const isAdminResponse = await response.json();
                     setIsAdmin(isAdminResponse === "ADMIN");
                 } catch (error) {
@@ -41,7 +41,7 @@ const DetailsArtist = ({ user }) => {
         const fetchAlbumsData = async () => {
             if (!artist) return;
             try {
-                const response = await fetch(`https://musicapplicationbackend.onrender.com/api/artists/${artist.id}/albums`);
+                const response = await fetch(`https://musicapplicationbackend-production.up.railway.app/api/artists/${artist.id}/albums`);
                 if (!response.ok) throw new Error("Failed to fetch albums");
                 const albumsData = await response.json();
                 setAlbums(albumsData);

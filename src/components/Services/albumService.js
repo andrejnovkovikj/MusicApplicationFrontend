@@ -3,7 +3,7 @@ import axios from 'axios';
 const albumService = {
     getAllAlbums: async () => {
         try {
-            const response = await axios.get('https://musicapplicationbackend.onrender.com/api/albums');
+            const response = await axios.get('https://musicapplicationbackend-production.up.railway.app/api/albums');
             return response.data;
         } catch (error) {
             console.error('Error fetching albums', error);
@@ -13,7 +13,7 @@ const albumService = {
 
     getAlbumsById: async (id) => {
         try {
-            const response = await axios.get(`https://musicapplicationbackend.onrender.com/api/albums/${id}`);
+            const response = await axios.get(`https://musicapplicationbackend-production.up.railway.app/api/albums/${id}`);
             return response.data;
         } catch (error) {
             console.error(`Error fetching album with id ${id}`, error);
@@ -23,7 +23,7 @@ const albumService = {
 
     createAlbum: async (album) => {
         try {
-            const response = await axios.post('https://musicapplicationbackend.onrender.com/api/albums/create', album);
+            const response = await axios.post('https://musicapplicationbackend-production.up.railway.app/api/albums/create', album);
             return response.data;
         } catch (error) {
             console.error('Error creating album', error);
@@ -33,7 +33,7 @@ const albumService = {
 
     updateAlbum: async (id, album) => {
         try {
-            const response = await axios.put(`https://musicapplicationbackend.onrender.com/api/albums/update/${id}`, album);
+            const response = await axios.put(`https://musicapplicationbackend-production.up.railway.app/api/albums/update/${id}`, album);
             return response.data;
         } catch (error) {
             console.error(`Error updating album ${id}`, error);
@@ -43,7 +43,7 @@ const albumService = {
 
     deleteAlbum: async (id) => {
         try {
-            await axios.delete(`https://musicapplicationbackend.onrender.com/api/albums/delete/${id}`);
+            await axios.delete(`https://musicapplicationbackend-production.up.railway.app/api/albums/delete/${id}`);
         } catch (error) {
             console.error(`Error deleting album ${id}`, error);
             throw error;
@@ -52,7 +52,7 @@ const albumService = {
 
     likeAlbum: async (userEmail,albumId) => {
         try {
-            const response = await axios.post(`https://musicapplicationbackend.onrender.com/api/albums/${userEmail}/${albumId}/like`);
+            const response = await axios.post(`https://musicapplicationbackend-production.up.railway.app/api/albums/${userEmail}/${albumId}/like`);
             return response.data;
         } catch (error) {
             console.error(`Error liking album ${albumId}`, error);
@@ -62,7 +62,7 @@ const albumService = {
 
     unlikeAlbum: async (userEmail,albumId) => {
         try {
-            const response = await axios.post(`https://musicapplicationbackend.onrender.com/api/albums/${userEmail}/${albumId}/unlike`);
+            const response = await axios.post(`https://musicapplicationbackend-production.up.railway.app/api/albums/${userEmail}/${albumId}/unlike`);
             return response.data;
         } catch (error) {
             console.error(`Error unliking album ${albumId}`, error);
@@ -72,7 +72,7 @@ const albumService = {
 
     getLikedAlbumsByUserId: async (userEmail) => {
         try {
-            const response = await axios.get(`https://musicapplicationbackend.onrender.com/api/albums/${userEmail}/liked-albums`, {
+            const response = await axios.get(`https://musicapplicationbackend-production.up.railway.app/api/albums/${userEmail}/liked-albums`, {
                 withCredentials: true
             });
             return response.data;
@@ -83,7 +83,7 @@ const albumService = {
     },
     getSongsFromAlbum : async (albumId) => {
         try {
-            const response = await axios.get(`https://musicapplicationbackend.onrender.com/api/albums/get/${albumId}`,{withCredentials: true });
+            const response = await axios.get(`https://musicapplicationbackend-production.up.railway.app/api/albums/get/${albumId}`,{withCredentials: true });
             return response.data;
         }catch (error){
             console.error('Error fatching songs from album',error);

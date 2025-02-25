@@ -40,7 +40,7 @@ const EditAlbum = ({ user }) => {
         const fetchIsAdmin = async () => {
           if(user){
               try {
-                  const response = await fetch(`https://musicapplicationbackend.onrender.com/api/users/${user.uid}/role`);
+                  const response = await fetch(`https://musicapplicationbackend-production.up.railway.app/api/users/${user.uid}/role`);
                   const isAdminStatus = await response.json();
 
                   if( isAdminStatus === "ADMIN"){
@@ -87,7 +87,7 @@ const EditAlbum = ({ user }) => {
             setLoading(false);
         }
     }, [album, isAdmin]);
-    if (loading) return <div><h1>Loading...</h1></div>;
+    if (loading) return <div className="d-flex justify-content-center"><h1>Loading...</h1></div>;
     if(!isAdmin) return <div className="d-flex justify-content-center"><h4> You dont have an access for this page!</h4> </div>
 
 

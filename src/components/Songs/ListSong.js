@@ -7,6 +7,7 @@ const ListSong = ({ user }) => {
     const [songs, setSongs] = useState([]);
     const [likedSongs, setLikedSongs] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
+    const [loading, setLoading] = useState(true);
     const [isAdmin, setIsAdmin] = useState(false);
 
     useEffect(() => {
@@ -22,7 +23,7 @@ const ListSong = ({ user }) => {
         const fetchLikedSongs = async () => {
             if (user) {
                 try {
-                    const response = await fetch(`https://musicapplicationbackend.onrender.com/api/songs/${user.email}/liked-songs`);
+                    const response = await fetch(`https://musicapplicationbackend-production.up.railway.app/api/songs/${user.email}/liked-songs`);
                     if (!response.ok) throw new Error("Failed to fetch liked songs");
                     const likedSongsData = await response.json();
                     setLikedSongs(likedSongsData.map(song => song.id));
@@ -35,7 +36,7 @@ const ListSong = ({ user }) => {
         const fetchIsAdmin = async () => {
             if (user) {
                 try {
-                    const response = await fetch(`https://musicapplicationbackend.onrender.com/api/users/${user.uid}/role`);
+                    const response = await fetch(`https://musicapplicationbackend-production.up.railway.app/api/users/${user.uid}/role`);
                     const isAdminResponse = await response.json();
                     setIsAdmin(isAdminResponse === 'ADMIN');
                 } catch (error) {
@@ -83,6 +84,13 @@ const ListSong = ({ user }) => {
     };
 
     const filteredSongs = songs.filter(song => song.title.toLowerCase().includes(searchTerm.toLowerCase()));
+
+    useEffect(() => {
+        if (songs.length > 0 && isAdmin !== undefined) {
+            setLoading(false);
+        }
+    }, [songs, isAdmin]);
+    if (loading) return <div className="d-flex justify-content-center"><h1>Loading...</h1></div>;
 
     return (
         <div className="container d-flex justify-content-center align-items-center">

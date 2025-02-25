@@ -23,7 +23,7 @@ const ListAlbum = ({ user }) => {
         const fetchLikedAlbums = async () => {
             if (user) {
                 try {
-                    const response = await fetch(`https://musicapplicationbackend.onrender.com/api/albums/${user.email}/liked-albums`);
+                    const response = await fetch(`https://musicapplicationbackend-production.up.railway.app/api/albums/${user.email}/liked-albums`);
                     if (!response.ok) throw new Error("Failed to fetch liked albums");
                     const likedAlbumsData = await response.json();
                     setLikedAlbums(likedAlbumsData.map(album => album.id));
@@ -36,7 +36,7 @@ const ListAlbum = ({ user }) => {
         const fetchIsAdmin = async () => {
             if (user) {
                 try {
-                    const response = await fetch(`https://musicapplicationbackend.onrender.com/api/users/${user.uid}/role`);
+                    const response = await fetch(`https://musicapplicationbackend-production.up.railway.app/api/users/${user.uid}/role`);
                     const isAdminResponse = await response.json();
                     setIsAdmin(isAdminResponse === 'ADMIN');
                 } catch (error) {
@@ -48,7 +48,6 @@ const ListAlbum = ({ user }) => {
         fetchAlbums();
         fetchLikedAlbums();
         fetchIsAdmin();
-        setLoading(false);
     }, [user]);
 
     const handleLike = async (albumId) => {
@@ -95,10 +94,12 @@ const ListAlbum = ({ user }) => {
     const filteredAlbums = albums.filter(album =>
         album.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
-
-    if (loading) {
-        return <div>Loading albums...</div>;
-    }
+    useEffect(() => {
+        if (albums.length > 0 && isAdmin !== undefined) {
+            setLoading(false);
+        }
+    }, [albums, isAdmin]);
+    if (loading) return <div className="d-flex justify-content-center"><h1>Loading...</h1></div>;
 
     return (
         <div className="container d-flex justify-content-center align-items-center">

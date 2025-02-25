@@ -25,7 +25,7 @@ const Register = () => {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             const firebaseUser = userCredential.user;
 
-            const response = await fetch("https://musicapplicationbackend.onrender.com/api/auth/register", {
+            const response = await fetch("https://musicapplicationbackend-production.up.railway.app/api/auth/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

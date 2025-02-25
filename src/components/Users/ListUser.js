@@ -5,6 +5,7 @@ import {Link, Navigate} from 'react-router-dom';
 const ListUser = () => {
 
     const [users, setUsers] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         userService.getAllUsers()
@@ -22,6 +23,12 @@ const ListUser = () => {
             }
         }
     };
+    useEffect(() => {
+        if (users.length > 0) {
+            setLoading(false);
+        }
+    }, [users]);
+    if (loading) return <div className="d-flex justify-content-center"><h1>Loading...</h1></div>;
     return (
         <div className="container d-flex justify-content-center align-items-center">
             <div className="card shadow-lg p-4 text-center" style={{ width: "600px", background: "rgba(34, 34, 34, 0.8)", color: "#fff" }}>

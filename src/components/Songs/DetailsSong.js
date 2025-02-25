@@ -22,7 +22,7 @@ const DetailsSong = ({ user }) => {
 
         const fetchLikedSongs = async () => {
             try {
-                const response = await fetch(`https://musicapplicationbackend.onrender.com/api/songs/${user.email}/liked-songs`);
+                const response = await fetch(`https://musicapplicationbackend-production.up.railway.app/api/songs/${user.email}/liked-songs`);
                 if (!response.ok) throw new Error("Failed to fetch liked songs");
 
                 const likedSongs = await response.json();
@@ -35,7 +35,7 @@ const DetailsSong = ({ user }) => {
 
         const fetchIsAdmin = async () => {
             try {
-                const response = await fetch(`https://musicapplicationbackend.onrender.com/api/users/${user.uid}/role`);
+                const response = await fetch(`https://musicapplicationbackend-production.up.railway.app/api/users/${user.uid}/role`);
                 const isAdminResponse = await response.json();
                 setIsAdmin(isAdminResponse === 'ADMIN');
             } catch (error) {

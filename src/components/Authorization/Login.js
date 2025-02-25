@@ -24,7 +24,7 @@ const Login = () => {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             const firebaseUser = userCredential.user;
 
-            const response = await fetch("https://musicapplicationbackend.onrender.com/api/auth/login", {
+            const response = await fetch("https://musicapplicationbackend-production.up.railway.app/api/auth/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

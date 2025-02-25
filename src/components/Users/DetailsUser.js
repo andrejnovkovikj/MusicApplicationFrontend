@@ -27,7 +27,7 @@ const DetailsUser = () => {
             try {
                 if (user && user.email) {
                     console.log(`Fetching liked songs for ${user.email}`);
-                    const songsResponse = await fetch(`https://musicapplicationbackend.onrender.com/api/songs/${user.email}/liked-songs`);
+                    const songsResponse = await fetch(`https://musicapplicationbackend-production.up.railway.app/api/songs/${user.email}/liked-songs`);
                     if (!songsResponse.ok) throw new Error("Failed to fetch liked songs");
                     const songs = await songsResponse.json();
                     setLikedSongs(songs);
@@ -48,7 +48,7 @@ const DetailsUser = () => {
             try {
                 if (user && user.email) {
                     console.log(`Fetching liked albums for ${user.email}`);
-                    const albumsResponse = await fetch(`https://musicapplicationbackend.onrender.com/api/albums/${user.email}/liked-albums`);
+                    const albumsResponse = await fetch(`https://musicapplicationbackend-production.up.railway.app/api/albums/${user.email}/liked-albums`);
                     if (!albumsResponse.ok) throw new Error("Failed to fetch liked albums");
                     const albums = await albumsResponse.json();
                     setLikedAlbums(albums);

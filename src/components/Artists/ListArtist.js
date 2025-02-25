@@ -7,6 +7,7 @@ import axios from "axios";
 const ListArtist = ({ user }) => {
     const [artists, setArtists] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
+    const [loading, setLoading] = useState(true);
     const [isAdmin,setIsAdmin] = useState(false);
 
     useEffect(() => {
@@ -21,7 +22,7 @@ const ListArtist = ({ user }) => {
         const fetchIsAdmin = async () => {
             if(user){
                 try {
-                    const response = await fetch(`https://musicapplicationbackend.onrender.com/api/users/${user.uid}/role`);
+                    const response = await fetch(`https://musicapplicationbackend-production.up.railway.app/api/users/${user.uid}/role`);
                     if(!response.ok) throw new Error("Failed to fetch admin status");
 
                     const adminStatus = await response.json();
@@ -53,6 +54,14 @@ const ListArtist = ({ user }) => {
     const filteredArtists = artists.filter((artist) =>
         artist.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
+
+    useEffect(() => {
+        if (artists.length > 0 && isAdmin !== undefined) {
+            setLoading(false);
+        }
+    }, [artists, isAdmin]);
+    if (loading) return <div className="d-flex justify-content-center"><h1>Loading...</h1></div>;
+
     return (
         <div className="container d-flex justify-content-center align-items-center">
             <div className="card shadow-lg p-4"
