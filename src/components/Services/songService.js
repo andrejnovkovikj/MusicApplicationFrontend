@@ -23,7 +23,7 @@ const songService = {
 
     createSong: async (song) => {
         try {
-            const response = await axios.post('http://localhost:8080/api/songs', song);
+            const response = await axios.post('https://musicapplicationbackend-production.up.railway.app/api/songs', song);
             return response.data;
         } catch (error) {
             console.error('Error creating song', error);

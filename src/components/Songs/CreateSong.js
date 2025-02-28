@@ -53,7 +53,7 @@ const CreateSong = ({ user }) => {
         };
         fetchIsAdmin();
         fetchData();
-    }, []);
+    }, [user]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();

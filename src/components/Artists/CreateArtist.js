@@ -25,7 +25,7 @@ const CreateArtist = ({ user }) => {
             }
         };
         fetchIsAdmin();
-    }, []);
+    }, [user]);
 
 
     const handleSubmit = async (e) => {

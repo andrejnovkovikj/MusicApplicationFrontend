@@ -38,7 +38,7 @@ const ListArtist = ({ user }) => {
         };
         fetchIsAdmin();
         fetchArtists();
-    }, []);
+    }, [user]);
 
     const handleDelete = async (id) => {
         if (window.confirm("Are you sure you want to delete this artist?")) {

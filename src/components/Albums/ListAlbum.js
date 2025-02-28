@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import albumService from "../Services/albumService";
 import { Link } from 'react-router-dom';
-import { Dropdown } from 'react-bootstrap';
 
 const ListAlbum = ({ user }) => {
     const [albums, setAlbums] = useState([]);

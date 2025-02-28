@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {Navigate, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import AlbumService from "../Services/albumService";
 import artistService from "../Services/artistService";
 
@@ -38,7 +38,7 @@ const CreateAlbum = ({ user }) => {
        };
 
         fetchIsAdmin();
-    }, []);
+    }, [user]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
