@@ -58,7 +58,7 @@ const CreateSong = ({ user }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!title.trim() || !filePath.trim() || !lengthSeconds || !albumId || !artistId) {
+        if (!title.trim() || !filePath.trim() || !lengthSeconds || !albumId) {
             setError("All fields are required.");
             return;
         }
@@ -67,8 +67,7 @@ const CreateSong = ({ user }) => {
             title,
             filePath,
             lengthSeconds: Number(lengthSeconds),
-            album: { id: albumId },
-            artist: { id: artistId }
+            album: { id: albumId }
         };
 
         try {
@@ -145,22 +144,6 @@ const CreateSong = ({ user }) => {
                         </select>
                     </div>
 
-                    <div className="mb-3 text-start">
-                        <label className="form-label">Artist:</label>
-                        <select
-                            value={artistId}
-                            onChange={(e) => setArtistId(e.target.value)}
-                            className="form-select bg-dark text-white border-secondary"
-                            required
-                        >
-                            <option value="" disabled>Select an artist</option>
-                            {artists.map((artist) => (
-                                <option key={artist.id} value={artist.id}>
-                                    {artist.name}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
 
                     <div className="d-flex justify-content-center">
                         <button type="submit" className="btn btn-primary">Create Song</button>
