@@ -7,6 +7,7 @@ const DetailsUser = () => {
     const [user, setUser] = useState(null);
     const [likedSongs, setLikedSongs] = useState([]);
     const [likedAlbums, setLikedAlbums] = useState([]);
+    const [userPlaylists, setUserPlaylists] = useState([]);
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -40,6 +41,27 @@ const DetailsUser = () => {
 
         if (user) {
             fetchLikedSongs();
+        }
+    }, [user]);
+
+    useEffect(() => {
+        const fetchPlaylists = async () => {
+            try {
+                if (user && user.email) {
+                    console.log(`Fetching playlists for ${user.email}`);
+                    const playlistResponse = await fetch(`https://musicapplicationbackend-production.up.railway.app/api/playlists/userPlaylists/${user.email}`);
+                    if (!playlistResponse.ok) throw new Error("Failed to fetch playlists");
+                    const playlists = await playlistResponse.json();
+                    setUserPlaylists(playlists);
+                    console.log("Playlists:", playlists);
+                }
+            } catch (error) {
+                console.error("Error fetching playlists:", error);
+            }
+        };
+
+        if (user) {
+            fetchPlaylists();
         }
     }, [user]);
 
@@ -128,6 +150,33 @@ const DetailsUser = () => {
                         </div>
                     ) : (
                         <p className="text-center text-muted">No liked albums.</p>
+                    )}
+                </div>
+                <div className="card shadow-sm p-3 mb-4" style={{background: "rgba(34, 34, 34, 0.9)"}}>
+                    <h3 className="text-center text-white">Playlists</h3>
+                    {userPlaylists.length > 0 ? (
+                        <div className="row">
+                            {userPlaylists.map((playlist) => (
+                                <div key={playlist.id} className="col-12 mb-3">
+                                    <Link to={`/playlists/${playlist.id}`}
+                                          className="list-group-item text-decoration-none">
+                                        <div className="d-flex align-items-center">
+                                            <img
+                                                src={playlist.imageUrl || "/default-playlist.jpg"}
+                                                alt={playlist.title}
+                                                className="rounded me-3"
+                                                style={{width: "50px", height: "50px", objectFit: "cover"}}
+                                            />
+                                            <div className="text-start">
+                                                <h6 className="mb-0 text-white">{playlist.name}</h6>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <p className="text-center text-muted">No playlists.</p>
                     )}
                 </div>
 

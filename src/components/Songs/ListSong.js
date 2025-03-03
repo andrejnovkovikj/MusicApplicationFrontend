@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Dropdown } from "react-bootstrap";
 import songService from "../Services/songService";
 
 const ListSong = ({ user }) => {
@@ -70,18 +69,6 @@ const ListSong = ({ user }) => {
         }
     };
 
-    const handleDelete = async (id) => {
-        if (window.confirm("Are you sure you want to delete this song?")) {
-            try {
-                await songService.deleteSong(id);
-                setSongs(prevSongs => prevSongs.filter(song => song.id !== id));
-                alert("Song deleted successfully!");
-            } catch (error) {
-                console.error("Error deleting song:", error);
-                alert("Failed to delete the song.");
-            }
-        }
-    };
 
     const filteredSongs = songs.filter(song => song.title.toLowerCase().includes(searchTerm.toLowerCase()));
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { auth } from "../FireBase/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import { useAuth } from "./AuthContext";
 
 const Login = () => {
@@ -69,13 +69,14 @@ const Login = () => {
                     style={styles.input}
                 />
                 <button type="submit" style={styles.button}>Login</button>
+                <h6>New around here? Register <Link to="/register">here</Link></h6>
             </form>
         </div>
     );
 };
 
 const styles = {
-    container: { maxWidth: "400px", margin: "auto", padding: "20px", textAlign: "center" },
+    container: {maxWidth: "400px", margin: "auto", padding: "20px", textAlign: "center" },
     form: { display: "flex", flexDirection: "column", gap: "10px" },
     input: { padding: "10px", fontSize: "16px" },
     button: { padding: "10px", fontSize: "16px", cursor: "pointer" },

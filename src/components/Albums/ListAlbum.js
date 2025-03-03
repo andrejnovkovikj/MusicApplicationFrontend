@@ -77,19 +77,6 @@ const ListAlbum = ({ user }) => {
         }
     };
 
-    const handleDelete = async (id) => {
-        if (window.confirm("Are you sure you want to delete this album?")) {
-            try {
-                await albumService.deleteAlbum(id);
-                setAlbums(prevAlbums => prevAlbums.filter(album => album.id !== id));
-                alert("Album deleted successfully!");
-            } catch (error) {
-                console.error("Error deleting album:", error);
-                alert("Failed to delete the album.");
-            }
-        }
-    };
-
     const filteredAlbums = albums.filter(album =>
         album.title.toLowerCase().includes(searchTerm.toLowerCase())
     );

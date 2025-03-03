@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import {useNavigate} from "react-router-dom";
 import { Link, useParams } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
 import albumService from "../Services/albumService";
@@ -10,6 +11,7 @@ const DetailsAlbum = ({ user }) => {
     const [liked, setLiked] = useState(false);
     const [isAdmin,setIsAdmin] = useState(false);
     const [loading,setLoading] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchAlbumData = async () => {
@@ -99,7 +101,7 @@ const DetailsAlbum = ({ user }) => {
             try {
                 await albumService.deleteAlbum(id);
                 alert("Album deleted successfully!");
-                window.location.href = "/albums";
+                navigate("/albums")
             } catch (error) {
                 console.error("Error deleting album:", error);
                 alert("Failed to delete the album.");

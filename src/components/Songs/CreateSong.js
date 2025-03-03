@@ -12,9 +12,7 @@ const CreateSong = ({ user }) => {
     const [filePath, setFilePath] = useState("");
     const [lengthSeconds, setLengthSeconds] = useState("");
     const [albumId, setAlbumId] = useState("");
-    const [artistId, setArtistId] = useState("");
     const [albums, setAlbums] = useState([]);
-    const [artists, setArtists] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [isAdmin,setIsAdmin] = useState(false);
@@ -28,7 +26,6 @@ const CreateSong = ({ user }) => {
                 ]);
 
                 setAlbums(albumsData);
-                setArtists(artistsData);
             } catch (error) {
                 console.error("Error fetching data:", error);
                 setError("Failed to load albums or artists.");

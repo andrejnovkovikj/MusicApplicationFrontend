@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { auth } from "../FireBase/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import { useAuth } from "./AuthContext";
 
 const Register = () => {
@@ -83,6 +83,7 @@ const Register = () => {
                     </select>
                 </div>
                 <button type="submit" style={styles.button}>Register</button>
+                <h6>Already have an account? Sign in <Link to="/login">here</Link></h6>
             </form>
         </div>
     );

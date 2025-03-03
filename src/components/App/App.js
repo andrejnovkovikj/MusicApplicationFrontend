@@ -24,6 +24,14 @@ import EditSong from "../Songs/EditSong";
 import DetailsSong from "../Songs/DetailsSong";
 import ListUser from "../Users/ListUser";
 import DetailsUser from "../Users/DetailsUser";
+import CreatePlaylist from "../Playlists/CreatePlaylist";
+import ListPlaylist from "../Playlists/ListPlaylist";
+import DetailsPlaylist from "../Playlists/DetailsPlaylist";
+import EditPlaylist from "../Playlists/EditPlaylist";
+import CreateConcert from "../Concerts/CreateConcert";
+import ListConcert from "../Concerts/ListConcert";
+import DetailsConcert from "../Concerts/DetailsConcert";
+import EditConcert from "../Concerts/EditConcert";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -66,6 +74,15 @@ function App() {
                             <Route path="/artists/:id" element={<DetailsArtist user={user}/>} />
                             <Route path="/artists/edit/:id" element={<EditArtist user={user} />} />
 
+                            <Route path="/playlists/create" element={<CreatePlaylist user={user} />} />
+                            <Route path="/playlists" element={<ListPlaylist user={user} />} />
+                            <Route path="/playlists/:id" element={<DetailsPlaylist user={user} /> } />
+                            <Route path="/playlists/edit/:id" element={<EditPlaylist user={user} />} />
+
+                            <Route path="/concerts/create" element={<CreateConcert user={user} />} />
+                            <Route path="/concerts" element={<ListConcert user={user} />} />
+                            <Route path="/concerts/:id" element={<DetailsConcert user={user} /> } />
+                            <Route path="/concerts/edit/:id" element={<EditConcert user={user} />} />
 
 
 

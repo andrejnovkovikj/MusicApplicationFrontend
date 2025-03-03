@@ -10,6 +10,7 @@ const ListArtist = ({ user }) => {
     const [loading, setLoading] = useState(true);
     const [isAdmin,setIsAdmin] = useState(false);
 
+
     useEffect(() => {
         const fetchArtists = async () => {
             try {
@@ -40,16 +41,6 @@ const ListArtist = ({ user }) => {
         fetchArtists();
     }, [user]);
 
-    const handleDelete = async (id) => {
-        if (window.confirm("Are you sure you want to delete this artist?")) {
-            try {
-                await artistService.deleteArtist(id);
-                setArtists((prevArtists) => prevArtists.filter((artist) => artist.id !== id));
-            } catch (error) {
-                console.error("Error deleting artist: ", error);
-            }
-        }
-    };
 
     const filteredArtists = artists.filter((artist) =>
         artist.name.toLowerCase().includes(searchTerm.toLowerCase())

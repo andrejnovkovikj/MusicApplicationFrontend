@@ -15,14 +15,14 @@ const Sidebar = ({ user }) => {
 
                     <Link to="/artists" className="nav-link text-white d-flex align-items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                             className="bi bi-music-note-list me-2" viewBox="0 0 16 16">
-                            <path d="M12 13c0 1.105-1.12 2-2.5 2S7 14.105 7 13s1.12-2 2.5-2 2.5.895 2.5 2"/>
-                            <path fillRule="evenodd" d="M12 3v10h-1V3z"/>
-                            <path d="M11 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 16 2.22V4l-5 1z"/>
-                            <path fillRule="evenodd"
-                                  d="M0 11.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5m0-4A.5.5 0 0 1 .5 7H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5m0-4A.5.5 0 0 1 .5 3H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5"/>
+                             className="bi bi-mic" viewBox="0 0 16 16">
+                            <path
+                                d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5"/>
+                            <path
+                                d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3"/>
                         </svg>
-                        Artists
+                        <span className="ms-2">Artists</span>
+
                     </Link>
                 </li>
 
@@ -52,6 +52,33 @@ const Sidebar = ({ user }) => {
                 </li>
 
                 <li className="nav-item">
+                    <Link to="/playlists" className="nav-link text-white d-flex align-items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                             className="bi bi-music-note-list" viewBox="0 0 16 16">
+                            <path d="M12 13c0 1.105-1.12 2-2.5 2S7 14.105 7 13s1.12-2 2.5-2 2.5.895 2.5 2"/>
+                            <path fill-rule="evenodd" d="M12 3v10h-1V3z"/>
+                            <path d="M11 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 16 2.22V4l-5 1z"/>
+                            <path fill-rule="evenodd"
+                                  d="M0 11.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5m0-4A.5.5 0 0 1 .5 7H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5m0-4A.5.5 0 0 1 .5 3H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5"/>
+                        </svg>
+                        <span className="ms-2">Playlists</span>
+
+                    </Link>
+                </li>
+                <li className="nav-item">
+                    <Link to="/concerts" className="nav-link text-white d-flex align-items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                             className="bi bi-building" viewBox="0 0 16 16">
+                            <path
+                                d="M4 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z"/>
+                            <path
+                                d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1zm11 0H3v14h3v-2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h3z"/>
+                        </svg>
+                        <span className="ms-2">Concerts</span>
+
+                    </Link>
+                </li>
+                <li className="nav-item">
                     <Link to="/users" className="nav-link text-white d-flex align-items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              className="bi bi-people me-2" viewBox="0 0 16 16">
@@ -61,7 +88,6 @@ const Sidebar = ({ user }) => {
                         Users
                     </Link>
                 </li>
-
             </ul>
             <hr/>
             <div className="text-center">
@@ -75,7 +101,8 @@ const Sidebar = ({ user }) => {
                 </div>
                 {user ? (
                     <>
-                        <p className="text-white">Welcome, <Link to={`/users/${user.uid}`} className="text-white text-decoration-underline">
+                        <p className="text-white">Welcome, <Link to={`/users/${user.uid}`}
+                                                                 className="text-white text-decoration-underline">
                             <h6 className="mb-0">{user.email}</h6>
                         </Link></p>
                         <Logout/>
