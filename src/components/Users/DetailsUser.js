@@ -8,6 +8,7 @@ const DetailsUser = () => {
     const [likedSongs, setLikedSongs] = useState([]);
     const [likedAlbums, setLikedAlbums] = useState([]);
     const [userPlaylists, setUserPlaylists] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -85,6 +86,14 @@ const DetailsUser = () => {
             fetchLikedAlbums();
         }
     }, [user]);
+
+    useEffect(() => {
+        if (user) {
+            setIsLoading(false);
+        }
+    }, [user]);
+    if (isLoading) return <div className="d-flex justify-content-center"><h1>Loading...</h1></div>;
+
     if (!user) return <div className="text-center mt-5 text-danger">Error: User not found</div>;
 
     return (
