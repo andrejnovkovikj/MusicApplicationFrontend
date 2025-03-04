@@ -8,7 +8,6 @@ const Navbar = ({ user }) => {
 
     const closeNavbar = () => {
         if (navbarToggleRef.current) {
-            // This will trigger the collapse and hide the navbar
             navbarToggleRef.current.click();
         }
     };
