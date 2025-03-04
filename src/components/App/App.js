@@ -8,7 +8,6 @@ import { useState, useEffect } from "react";
 import { auth } from "../FireBase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import {AuthProvider} from "../Authorization/AuthContext";
-import Sidebar from "../SideBar/Sidebar";
 import Home from "../Home/Home";
 import CreateAlbum from "../Albums/CreateAlbum";
 import CreateArtist from "../Artists/CreateArtist";
@@ -32,6 +31,8 @@ import CreateConcert from "../Concerts/CreateConcert";
 import ListConcert from "../Concerts/ListConcert";
 import DetailsConcert from "../Concerts/DetailsConcert";
 import EditConcert from "../Concerts/EditConcert";
+import Navbar from "../Navbar/Navbar";
+import './App.css'
 
 function App() {
   const [user, setUser] = useState(null);
@@ -49,7 +50,7 @@ function App() {
             <Router>
 
                 <div className="d-flex">
-                    <Sidebar user={user} />
+                    <Navbar user={user} />
 
                     <div className="main-content">
                         <Routes>
