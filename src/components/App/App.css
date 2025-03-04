@@ -1,4 +1,4 @@
-.body {
+body {
   padding-top: 56px;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -6,6 +6,8 @@
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(to bottom, #3693e6, #ef86ae);
+  min-height: 100vh;
 }
 
 .main-content {
@@ -14,11 +16,6 @@
   align-items: flex-start;
   padding: 20px;
   width: 100%;
-}
-
-body {
-  background: linear-gradient(to bottom, #3693e6, #ef86ae);
-  min-height: 100vh;
 }
 
 .content-box {
@@ -41,8 +38,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-  monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 @tailwind base;
