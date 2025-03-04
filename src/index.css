@@ -20,7 +20,7 @@ body {
   width: calc(100% - 250px);
 }
 body {
-  background: linear-gradient(to bottom, #ef86ae, #3693e6 );
+  background: linear-gradient(to bottom, #3693e6, #ef86ae );
   min-height: 100vh;
 }
 
@@ -45,3 +45,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
